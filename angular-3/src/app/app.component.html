@@ -1,1 +1,29 @@
-<p>app works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <table class="table">
+        <thead>
+          <th>id</th>
+          <th>material</th>
+          <th>trade</th>
+          <th>cost code</th>
+          <th>price</th>
+          <th>active</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items$ | async">
+            <td>{{ item.id }}</td>
+            <td>{{ item.material }}</td>
+            <td>{{ item.trade }}</td>
+            <td>{{ item.cost_code }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.active }}</td>
+            <button (click)="onDelete(item)" class="btn btn-danger mt-1">
+              <i class="fa fa-trash"></i>
+            </button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

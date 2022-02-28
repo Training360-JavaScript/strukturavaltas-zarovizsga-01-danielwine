@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-6 offset-3" *ngIf="car$ | async as car">
+    <form #carForm="ngForm" (ngSubmit)="onUpdate(carForm)">
+      <div class="form-group">
+        <label for="">Id</label>
+        <input
+          readonly
+          required
+          name="id"
+          [(ngModel)]="car.id"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Model</label>
+        <input
+          required
+          pattern="^[A-Z].{2,15}$"
+          name="model"
+          [(ngModel)]="car.model"
+          type="text"
+          class="form-control"
+        />
+        <div [hidden]="carForm.controls['model']?.valid" class="error-message">
+          Bad format
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Make</label>
+        <input
+          required
+          pattern="^[A-Z]([A-Z]){3,20}$"
+          name="make"
+          [(ngModel)]="car.make"
+          type="text"
+          class="form-control"
+        />
+        <div [hidden]="carForm.controls['make']?.valid" class="error-message">
+          Bad format
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Year</label>
+        <input
+          required
+          pattern="^[0-9]*$"
+          name="year"
+          [(ngModel)]="car.year"
+          type="number"
+          class="form-control"
+        />
+        <div [hidden]="carForm.controls['year']?.valid" class="error-message">
+          Bad format
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Price</label>
+        <input
+          required
+          name="price"
+          [(ngModel)]="car.price"
+          type="number"
+          class="form-control"
+        />
+        <div [hidden]="carForm.controls['price']?.valid" class="error-message">
+          Bad format
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Stock</label>
+        <input
+          required
+          name="stock"
+          [(ngModel)]="car.stock"
+          type="number"
+          class="form-control"
+        />
+        <div [hidden]="carForm.controls['stock']?.valid" class="error-message">
+          Bad format
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block btn-lg">
+        <i class="fa fa-save"></i>
+      </button>
+    </form>
+  </div>
+</div>
